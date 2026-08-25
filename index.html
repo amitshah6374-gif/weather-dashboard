@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-cloud-sun"></i> Weather Dashboard</h1>
+            <p class="subtitle">Real-time weather information for your favorite locations</p>
+        </header>
+
+        <div class="search-section">
+            <div class="search-box">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="Search city (e.g., London, New York, Tokyo)"
+                    autocomplete="off"
+                >
+                <button id="searchBtn" title="Search">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <div id="suggestions" class="suggestions"></div>
+        </div>
+
+        <div class="controls">
+            <button id="currentLocationBtn" class="btn btn-primary">
+                <i class="fas fa-map-marker-alt"></i> Use Current Location
+            </button>
+            <button id="refreshBtn" class="btn btn-secondary">
+                <i class="fas fa-sync-alt"></i> Refresh
+            </button>
+            <select id="unitToggle" class="btn btn-secondary">
+                <option value="metric">°C | m/s</option>
+                <option value="imperial">°F | mph</option>
+            </select>
+        </div>
+
+        <div id="errorMessage" class="error-message"></div>
+        <div id="loadingSpinner" class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Loading weather data...</p>
+        </div>
+
+        <div id="weatherContainer" class="weather-container"></div>
+
+        <div class="saved-locations">
+            <h2>Saved Locations</h2>
+            <div id="savedLocationsList" class="locations-list"></div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="weatherApi.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
